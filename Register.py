@@ -15,7 +15,7 @@ wait.until(
 )
 d.find_element(By.XPATH, "//input[@placeholder='Name']").send_keys("Tamil")
 d.find_element(By.XPATH, "//input[@data-qa='signup-email']").send_keys(
-    "tamilkumar02111@gmail.com"
+    "tamilkumar9081@gmail.com"
 )
 d.find_element(By.XPATH, "//button[normalize-space()='Signup']").click()
 wait.until(
