@@ -1,4 +1,3 @@
-from socket import timeout
 import time
 
 from selenium import webdriver
@@ -10,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 d = webdriver.Chrome()
 d.maximize_window()
 wait = WebDriverWait(
-    d, timeout=10, poll_frequency=2, ignored_exceptions=[NoSuchElementException]
+    d, 10, poll_frequency=2, ignored_exceptions=[NoSuchElementException]
 )
 d.get("https://automationexercise.com/")
 d.find_element(By.XPATH, "//a[normalize-space()='Contact us']").click()
