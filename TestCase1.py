@@ -4,6 +4,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+def dismiss_ads(driver):
+    try:
+        driver.execute_script("""
+            document.querySelectorAll(
+                "iframe, .adsbygoogle, [id*='google_ads'], [id*='aswift']"
+            ).forEach(el => el.remove());
+        """)
+        print("Ads removed")
+    except Exception as e:
+        print("No ads found:", e)
 
 d = webdriver.Chrome()
 d.maximize_window()
@@ -15,8 +25,9 @@ wait.until(
 )
 d.find_element(By.XPATH, "//input[@placeholder='Name']").send_keys("Tamil")
 d.find_element(By.XPATH, "//input[@data-qa='signup-email']").send_keys(
-    "tamilkumar9081@gmail.com"
+    "tamilkuma1@gmail.com"
 )
+dismiss_ads(d)
 d.find_element(By.XPATH, "//button[normalize-space()='Signup']").click()
 wait.until(
     EC.element_to_be_clickable(

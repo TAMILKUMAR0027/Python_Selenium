@@ -2,6 +2,16 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+def dismiss_ads(driver):
+    try:
+        driver.execute_script("""
+            document.querySelectorAll(
+                "iframe, .adsbygoogle, [id*='google_ads'], [id*='aswift']"
+            ).forEach(el => el.remove());
+        """)
+        print("Ads removed")
+    except Exception as e:
+        print("No ads found:", e)
 
 d = webdriver.Chrome()
 wait = WebDriverWait(d, 10)
