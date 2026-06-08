@@ -1,32 +1,21 @@
 from re import sub
 
 from selenium import webdriver
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-
 def dismiss_ads(driver):
     try:
         driver.execute_script("""
-            document.querySelectorAll('iframe').forEach(frame => {
-                let src = frame.src || '';
-                let id = frame.id || '';
-
-                if (
-                    src.includes('doubleclick') ||
-                    src.includes('googleads') ||
-                    src.includes('googlesyndication') ||
-                    id.includes('aswift') ||
-                    id.includes('google_ads')
-                ) {
-                    frame.remove();
-                }
-            });
+            document.querySelectorAll(
+                "iframe, .adsbygoogle, [id*='google_ads'], [id*='aswift']"
+            ).forEach(el => el.remove());
         """)
-        print("Ads dismissed")
+        print("Ads removed")
     except Exception as e:
-        print(f"Ad dismissal skipped: {e}")
+        print("No ads found:", e)
 
 d=webdriver.Chrome()
 wait=WebDriverWait(d,10)
