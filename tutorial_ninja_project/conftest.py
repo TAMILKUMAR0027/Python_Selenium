@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 from Utilities import read_config
 from log import logCreator
@@ -13,9 +14,10 @@ def setup_tearDown(request):
     if browser=='chrome':
       d=webdriver.Chrome()
       d.maximize_window()
-      d.implicitly_wait(10)
+      wait=WebDriverWait(d,10)
       d.get(url)
       log.info("Website launched")
       request.cls.d=d
+      request.cls.wait=wait
       yield
       d.quit()
