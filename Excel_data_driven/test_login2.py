@@ -8,7 +8,7 @@ from Utilities import excelReader
 
 class TestLogin:
     def test_login(self):
-        data = excelReader.get_data(r"D:\Python_Selenium_Expleo\Excel_data_driven\ExcelFiles\Login_data.xlsx","login")
+        data = excelReader.get_data(r"D:\\Python_Selenium_Expleo\\Excel_data_driven\\ExcelFiles\\Login_data.xlsx","login")
         username=data[0][0]
         password=data[0][1]
         self.d=webdriver.Chrome()

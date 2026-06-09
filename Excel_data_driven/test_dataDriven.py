@@ -9,7 +9,7 @@ from Utilities import LogCreator
 from Utilities import excelReader
 
 log = LogCreator.log_generator() 
-@pytest.mark.parametrize("username,password",excelReader.get_data("ExcelFiles/Login_data.xlsx","login"))
+@pytest.mark.parametrize("username,password",excelReader.get_data("D:\\Python_Selenium_Expleo\\Excel_data_driven\\ExcelFiles\\Login_data.xlsx","login"))
 class TestLogin:
     def test_login(self,username,password):
         self.d=webdriver.Chrome()
