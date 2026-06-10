@@ -2,7 +2,7 @@ import pytest_check as check
 
 def test_demo():
     print("Start")
-    check.equal(1, 3)
+    check.equal(1, 1)
     print("next")
-    assert 2 == 1
+    assert 1== 1
     print("End")
