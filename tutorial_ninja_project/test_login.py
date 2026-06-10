@@ -47,3 +47,4 @@ class Testlogin:
         msg = self.wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='alert alert-danger alert-dismissible']"))).text
         print(msg)
         check.equal("Warning: No match for E-Mail Address and/or Password.",msg)
+        
