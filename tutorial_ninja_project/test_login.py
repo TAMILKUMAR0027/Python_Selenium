@@ -46,4 +46,4 @@ class Testlogin:
         self.wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@value='Login']"))).click()
         msg = self.wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='alert alert-danger alert-dismissible']"))).text
         print(msg)
-        check.equal("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.",msg)
+        check.equal("Warning: No match for E-Mail Address and/or Password.",msg)
